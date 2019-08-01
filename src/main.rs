@@ -19,12 +19,23 @@ fn main() {
         Ok(v) => println!("ok {:?}", v),
         Err(e) => println!("err {:?}", e),
     };
-*/
 
-    match build::build("TestModPack") {
+    match build::build("TestModPack", true) {
         Ok(v) => {
             println!("ok {:?}", v);
-            fs::write("build.json", v).expect("Unable to write to file :(")
+        }
+        Err(e) => println!("err {:?}", e),
+    }
+*/
+
+    match new::new("HEC-Basic", "C:\\Users\\Scarjit\\Arma3Mods\\HEC-Basic", "Url",  true) {
+        Ok(v) => println!("ok {:?}", v),
+        Err(e) => println!("err {:?}", e),
+    };
+
+    match build::build("HEC-Basic", true, true) {
+        Ok(v) => {
+            println!("ok {:?}", v);
         }
         Err(e) => println!("err {:?}", e),
     }
